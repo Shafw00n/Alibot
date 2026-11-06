@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Alibot — Praktikum 9</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="Alibot beranda">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>Ali<span class="brand-light">bot</span></span>
+        </a>
+        <div class="sidebar-label">DAFTAR PRAKTIKUM</div>
+        <nav class="mode-nav" aria-label="Mode chatbot">
+          <button class="mode-button active" data-mode="text" type="button">
+            <span class="mode-icon" aria-hidden="true">▤</span>
+            <span><strong>Praktikum 9.1</strong><small>Chatbot Gemini API</small></span>
+          </button>
+          <button class="mode-button" data-mode="voice" type="button">
+            <span class="mode-icon" aria-hidden="true">♩</span>
+            <span><strong>Praktikum 9.2</strong><small>Voice Chatbot</small></span>
+          </button>
+          <button class="mode-button" data-mode="voice_out" type="button">
+            <span class="mode-icon" aria-hidden="true">♫</span>
+            <span><strong>Praktikum 9.3</strong><small>Voice-in &amp; Voice-out</small></span>
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="api-status">
+            <span class="status-dot" id="status-dot"></span>
+            <span id="api-status-text">Memeriksa API key…</span>
+          </div>
+          <p>API key disimpan di server, tidak dikirim ke browser.</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark" aria-hidden="true">✦</span> Alibot</div>
+          <button class="clear-button" id="clear-button" type="button">Bersihkan percakapan</button>
+        </header>
+        <nav class="mobile-mode-nav" aria-label="Mode chatbot">
+          <button class="mobile-mode-button active" data-mode="text" type="button">Praktikum 9.1</button>
+          <button class="mobile-mode-button" data-mode="voice" type="button">Praktikum 9.2</button>
+          <button class="mobile-mode-button" data-mode="voice_out" type="button">Praktikum 9.3</button>
+        </nav>
+
+        <section class="workspace">
+          <div class="welcome" id="welcome">
+            <div class="welcome-icon" aria-hidden="true">✦</div>
+            <p class="eyebrow" id="practicum-label">PRAKTIKUM 9.1</p>
+            <h1 id="welcome-title">Chatbot Gemini API</h1>
+            <p class="welcome-copy" id="welcome-copy">Ketik pesan untuk memulai percakapan dengan Alibot.</p>
+          </div>
+
+          <div class="messages" id="messages" aria-live="polite"></div>
+          <div class="error-banner" id="error-banner" role="alert" hidden></div>
+
+          <section class="voice-panel" id="voice-panel" hidden>
+            <div class="voice-orb" id="voice-orb" aria-hidden="true"><span>♫</span></div>
+            <h2 id="voice-title">Praktikum 9.2</h2>
+            <p class="voice-description" id="voice-description">Ucapkan pertanyaan Anda. Rekaman maksimal 30 detik dan diproses setelah 2 detik hening.</p>
+            <button class="record-button" id="record-button" type="button">
+              <span class="record-icon" aria-hidden="true">●</span>
+              <span id="record-label">Mulai merekam</span>
+            </button>
+            <p class="record-hint" id="record-hint">Pastikan browser mengizinkan akses mikrofon.</p>
+            <div class="voice-result" id="voice-result" hidden>
+              <div><span class="result-label">ANDA MENGATAKAN</span><p id="transcript"></p></div>
+              <div>
+                <span class="result-label">ALIBOT</span>
+                <p id="voice-reply"></p>
+                <button class="speak-button" id="speak-button" type="button" hidden>Dengarkan jawaban</button>
+              </div>
+            </div>
+          </section>
+
+          <div class="composer-wrap" id="composer-wrap">
+            <form class="composer" id="chat-form">
+              <textarea id="message-input" rows="1" maxlength="2000" placeholder="Tulis pesan untuk Alibot..." aria-label="Pesan untuk Alibot"></textarea>
+              <button class="send-button" id="send-button" type="submit" aria-label="Kirim pesan">
+                <span aria-hidden="true">↑</span>
+              </button>
+            </form>
+            <p class="composer-hint">Modul 9 · Model Bahasa Besar</p>
+          </div>
+        </section>
+        <footer class="footer-note">Alibot · Praktikum Model Bahasa Besar</footer>
+      </main>
+    </div>
+  </body>
+</html>
